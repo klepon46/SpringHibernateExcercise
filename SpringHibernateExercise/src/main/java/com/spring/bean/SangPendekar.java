@@ -1,17 +1,24 @@
 package com.spring.bean;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="SANG_PENDEKAR")
-public class SangPendekar {
+public class SangPendekar implements Serializable{
 	
+	private static final long serialVersionUID = 1L;
+
 	@Id
-	@Column(name="ID_PENDEKER", unique=true, nullable=false)
-	private String idPendekar;
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Column(name="ID_PENDEKAR", unique=true, nullable=false)
+	private Integer idPendekar;
 	
 	@Column(name="NAMA_PENDEKAR")
 	private String namaPendekar;
@@ -23,14 +30,14 @@ public class SangPendekar {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public String getIdPendekar() {
+	
+	public Integer getIdPendekar() {
 		return idPendekar;
 	}
-
-	public void setIdPendekar(String idPendekar) {
+	public void setIdPendekar(Integer idPendekar) {
 		this.idPendekar = idPendekar;
 	}
-
+	
 	public String getNamaPendekar() {
 		return namaPendekar;
 	}
